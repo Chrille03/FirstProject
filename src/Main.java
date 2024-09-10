@@ -1,15 +1,35 @@
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
+import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
-        //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
-        // to see how IntelliJ IDEA suggests fixing it.
-        System.out.printf("Hello and welcome!");
+        Scanner fuck = new Scanner(System.in);
 
-        for (int i = 1; i <= 5; i++) {
-            //TIP Press <shortcut actionId="Debug"/> to start debugging your code. We have set one <icon src="AllIcons.Debugger.Db_set_breakpoint"/> breakpoint
-            // for you, but you can always add more by pressing <shortcut actionId="ToggleLineBreakpoint"/>.
-            System.out.println("i = " + i * 2);
+        System.out.println("Tid på dagen: 'Dag' 'Aften' 'nat'\nTid:" );
+        String tid = fuck.nextLine();
+
+        System.out.println("Trafikmængde: 'Høj' 'lav'\nTrafik:" );
+        String trafik = fuck.nextLine();
+
+        System.out.println("Områdes type: 'bolig' 'erhverv' 'blandet'\nType:" );
+        String type = fuck.nextLine();
+
+        System.out.println("Nødsituation: 'ja' 'nej'\nNød:" );
+        String nød = fuck.nextLine();
+
+        if ((tid.equals("Dag") && trafik.equals("lav")) || nød.equals("ja")){
+            System.out.println("lyset er grønt");
+        } else if (tid.equals("Aften") || (tid.equals("nat") && trafik.equals("lav"))){
+            System.out.println("lyset er gult");
+        } else if ((tid.equals("Nat") && trafik.equals("Høj")) || (trafik.equals("Høj") && type.equals("bolig"))) {
+            System.out.println("lyset er rødt");
+            
         }
+        if (type.equals("erhverv") || (type.equals("blandet") && trafik.equals("lav"))){
+            System.out.println("Adgang tilladt");
+        } else if (type.equals("bolig") && tid.equals("nat")){
+            System.out.println("Adgang forbudt");
+            
+        }
+
     }
-}
+
+    }
